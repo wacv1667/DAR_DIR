@@ -10,6 +10,7 @@ Code for our WACV2024 paper: "Evaluation of Video Masked Autoencoders’ Perform
 * accelerate==0.22.0
 * transformers==4.32.1
 * torchvision==1.13.0
+* bayesian-torch==0.4.0
 * tqdm
 
 ## Preparation 
@@ -41,3 +42,8 @@ python utils/dataset_check.py
 ### Deterministic
 
 ### Probabilistic
+
+
+### Acknowledgements
+
+We gracefully made use from the code from [Rong et al (2020)](https://github.com/yaorong0921/Driver-Intention-Prediction), [Torch Multimodal](https://github.com/facebookresearch/multimodal/blob/main/torchmultimodal/modules/layers/attention.py)
