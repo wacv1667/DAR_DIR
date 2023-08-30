@@ -23,3 +23,21 @@ This script downloads the data, and the repository from [Rong et al (2020)](http
 ```
 bash startup.sh
 ```
+
+Additionally, to be sure there is no overlap between train/test partitions, you can run the following script.
+This checks for every test partition if an instance is part of the other test partitions and not part of the train set of that particular fold.
+
+```
+python utils/dataset_check.py
+```
+
+## Training
+
+### Deterministic
+
+### Probabilistic
+
+## Validation
+### Deterministic
+
+### Probabilistic
