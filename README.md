@@ -19,8 +19,8 @@ Dataset download:
 * [HDD](https://usa.honda-ri.com/hdd) (Note that you need your official university e-mail to request and sign an agreement to get access to the dataset).
 
 For the Brain4Cars dataset, you can also run the startup.sh file.
-This script downloads the data, and the repository from [Rong et al (2020)](https://github.com/yaorong0921/Driver-Intention-Prediction) and creates folders with symlinks to the video files for the five folds. Our implementation expects the videos to use that folder structure.
-
+This script downloads the data, and the repository from [Rong et al (2020)](https://github.com/yaorong0921/Driver-Intention-Prediction) and creates folders with symlinks to the video files for the five folds. 
+Our implementation expects the videos to use that folder structure (e.g., _"./brain4cars_data/[train, val]/fold0/[rturn, lturn, rchange, lchange, end action]/*.avi"_.
 ```
 bash startup.sh
 ```
