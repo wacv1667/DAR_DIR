@@ -1,0 +1,44 @@
+import gc
+import torch
+from tqdm import tqdm
+import torch.nn.functional as F
+
+def train_loop(model, train_loader,
+               criterion, optimizer,
+               accelerator, scheduler=None,
+               verbose=False):
+    model.train()
+    total_loss = 0.0
+    correct_predictions = 0
+    total_predictions = 0
+    for i, x in (enumerate(train_loader)):
+        with accelerator.accumulate(model):
+            x = {k:v.to(accelerator.device) for (k,v) in x.items()}
+            targets = x["label"]
+            outputs = model(x)
+            loss = criterion(outputs, targets)
+            # multiply binary context penalty times the predicted probs
+            # sum per instance and take the batch mean to add to original loss
+            context_loss = torch.mean(torch.sum(x["context"].mul(F.softmax(outputs, dim=-1)),dim=1))
+            loss = context_loss + loss
+            accelerator.backward(loss)
+            optimizer.step()
+            if scheduler:
+                scheduler.step()
+            optimizer.zero_grad()
+            
+            # Compute accuracy and accumulate loss per batch
+            total_loss += loss.item() 
+            _, predicted = torch.max(outputs.data, 1)
+            total_predictions += targets.size(0)
+            correct_predictions += (predicted == torch.argmax(targets, dim=1)).sum().item() 
+
+    # Compute epoch accuracy and loss
+    accuracy = correct_predictions / total_predictions
+    epoch_loss = total_loss / (i+1)
+    gc.collect(), torch.cuda.empty_cache()
+    if verbose:
+        print(f"Train Accuracy: {accuracy:.4f}")
+        print(f"Train Loss: {epoch_loss:.4f}") 
+        
+    return model, optimizer, scheduler, accuracy, epoch_loss
