@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 
 pip install git+https://github.com/huggingface/transformers.git
 pip install  decord
