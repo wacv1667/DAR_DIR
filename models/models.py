@@ -78,6 +78,28 @@ class TwoStreamAttentionFusion(nn.Module):
         return x
 
 
+class TwoStreamConcatFusion(nn.Module):
+    def __init__(self,
+                 train_ds,
+                 model_ckpt =  "MCG-NJU/videomae-base-finetuned-kinetics", 
+                 num_classes=5):
+        super().__init__()
+        self.inside_vmae = VideoMAEForVideoClassification.from_pretrained(
+                            model_ckpt, label2id=train_ds.label2id, id2label=train_ds.id2label, ignore_mismatched_sizes=True,)
+        self.inside_vmae.classifier = torch.nn.Identity()
+        self.outside_vmae = VideoMAEForVideoClassification.from_pretrained(
+                            model_ckpt, label2id=train_ds.label2id, id2label=train_ds.id2label, ignore_mismatched_sizes=True,)
+        self.outside_vmae.classifier = torch.nn.Identity()
+        self.classifier = nn.Linear(768*2,num_classes)
+        
+    def forward(self, x):
+        x1 = self.inside_vmae(x["inside"].permute(0,2,1,3,4)).logits
+        x2 = self.outside_vmae(x["outside"].permute(0,2,1,3,4)).logits
+        x = torch.cat((x1, x2), -1)
+        x = self.classifier(x)
+        return x
+
+
 class OneStream(nn.Module):
     def __init__(self,
                  train_ds,
