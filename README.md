@@ -1,5 +1,5 @@
 ## Implementation for submission 1677 for WACV2024 
-Code for our WACV2024 paper: "Evaluation of Video Masked Autoencoders’ Performance and Uncertainty Estimations for Driver Action and Intention Recognition"
+Code for our WACV2024 submission: "Evaluation of Video Masked Autoencoders’ Performance and Uncertainty Estimations for Driver Action and Intention Recognition"
 
 ## Dependencies
 * pytorch==2.0.0 
