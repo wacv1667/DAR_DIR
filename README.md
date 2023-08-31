@@ -45,7 +45,7 @@ python utils/dataset_check.py
 
 
 ## Models
-| Modalities | Fold 0 - Dataset 1 Link | Fold 1 - Dataset 2 Link | Fold 2 - Dataset 3 Link | Fold 3 - Dataset 1 Link | Fold 4 - Dataset 2 Link |
+| Modalities | Fold 0 | Fold 1 | Fold 2 | Fold 3 | Fold 4 |
 |------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|
 | in-cabin   | [Link](url_to_dataset1) | [Link](url_to_dataset1) | [Link](url_to_dataset1) | [Link](url_to_dataset1) | [Link](url_to_dataset1) | 
 | exterior   | [Link](url_to_dataset2) | [Link](url_to_dataset2) | [Link](url_to_dataset2) | [Link](url_to_dataset2) | [Link](url_to_dataset2) | 
