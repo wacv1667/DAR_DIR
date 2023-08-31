@@ -3,6 +3,7 @@ from torch import nn, Tensor
 from typing import Dict, List, Optional
 from transformers import VideoMAEImageProcessor, VideoMAEForVideoClassification
 
+
 class AttentionFusionModule(nn.Module):
     """
     Fuse embeddings through weighted sum of the corresponding linear projections.
@@ -112,3 +113,15 @@ class OneStream(nn.Module):
     def forward(self, x):
         x = self.vmae(x[self.stream].permute(0,2,1,3,4)).logits
         return x
+
+
+class TwoStreamAttentionBBB_LL(nn.Module):
+    def __init__(self,
+                 model,
+                 num_classes=5):
+        super().__init__()
+        self.model = model
+        self.model.classifier = LinearReparameterization(768, num_classes) 
+                     
+    def forward(self, x):
+        return self.model(x)
