@@ -45,24 +45,11 @@ python utils/dataset_check.py
 
 
 ## Models
-| Dataset/Fold | Link                                    | Modalities |
-|--------------|-----------------------------------------|------------|
-| Brain4Cars - fold 1  | [Link to Dataset 1](url_to_dataset1)    | in-cabin   |
-| Brain4Cars - fold 1    | [Link to Dataset 2](url_to_dataset2)    | exterior   |
-| Brain4Cars - fold 1    | [Link to Dataset 3](url_to_dataset3)    | both       |
-| Brain4Cars - fold 2  | [Link to Dataset 1](url_to_dataset1)    | in-cabin   |
-| Brain4Cars - fold 2    | [Link to Dataset 2](url_to_dataset2)    | exterior   |
-| Brain4Cars - fold 2    | [Link to Dataset 3](url_to_dataset3)    | both       |
-| Brain4Cars - fold 3  | [Link to Dataset 1](url_to_dataset1)    | in-cabin   |
-| Brain4Cars - fold 3    | [Link to Dataset 2](url_to_dataset2)    | exterior   |
-| Brain4Cars - fold 3    | [Link to Dataset 3](url_to_dataset3)    | both       |
-| Brain4Cars - fold 4  | [Link to Dataset 1](url_to_dataset1)    | in-cabin   |
-| Brain4Cars - fold 4    | [Link to Dataset 2](url_to_dataset2)    | exterior   |
-| Brain4Cars - fold 4    | [Link to Dataset 3](url_to_dataset3)    | both       |
-| Brain4Cars - fold 5  | [Link to Dataset 1](url_to_dataset1)    | in-cabin   |
-| Brain4Cars - fold 5    | [Link to Dataset 2](url_to_dataset2)    | exterior   |
-| Brain4Cars - fold 5    | [Link to Dataset 3](url_to_dataset3)    | both       |
-
+| Modalities | Fold 0 - Dataset 1 Link | Fold 1 - Dataset 2 Link | Fold 2 - Dataset 3 Link | Fold 3 - Dataset 1 Link | Fold 4 - Dataset 2 Link |
+|------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|
+| in-cabin   | [Link](url_to_dataset1) | [Link](url_to_dataset1) | [Link](url_to_dataset1) | [Link](url_to_dataset1) | [Link](url_to_dataset1) | 
+| exterior   | [Link](url_to_dataset2) | [Link](url_to_dataset2) | [Link](url_to_dataset2) | [Link](url_to_dataset2) | [Link](url_to_dataset2) | 
+| both       | [Link](url_to_dataset3) | [Link](url_to_dataset3) | [Link](url_to_dataset3) | [Link](url_to_dataset3) | [Link](url_to_dataset3) | 
 
 
 ### Acknowledgements
