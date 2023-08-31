@@ -5,6 +5,7 @@ import torch.nn.functional as F
 from sklearn.metrics import f1_score
 from bayesian_torch.utils.util import predictive_entropy
 from torchmetrics.functional import average_precision
+from typing import Dict
 
 def eval_loop(model,
               val_loader,
@@ -13,7 +14,7 @@ def eval_loop(model,
               verbose=False,
               dataset_name = "brain4cars", 
               mc_samples: int = 1, 
-              model_type: str = None):
+              model_type: str = None) -> Dict:
     model.eval()
     total_loss = 0.0
     correct_predictions = 0
@@ -69,4 +70,4 @@ def eval_loop(model,
         results_dict["accuracy"] = correct_predictions / total_predictions
         results_dict["F1"] = f1_score(y_true, y_pred, average="macro")
 
-    return accuracy, f1, epoch_loss
+    return result_dict
