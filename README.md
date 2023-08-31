@@ -44,6 +44,27 @@ python utils/dataset_check.py
 ### Probabilistic
 
 
+## Models
+| Dataset/Fold | Link                                    | Modalities |
+|--------------|-----------------------------------------|------------|
+| Brain4Cars - fold 1  | [Link to Dataset 1](url_to_dataset1)    | in-cabin   |
+| Brain4Cars - fold 1    | [Link to Dataset 2](url_to_dataset2)    | exterior   |
+| Brain4Cars - fold 1    | [Link to Dataset 3](url_to_dataset3)    | both       |
+| Brain4Cars - fold 2  | [Link to Dataset 1](url_to_dataset1)    | in-cabin   |
+| Brain4Cars - fold 2    | [Link to Dataset 2](url_to_dataset2)    | exterior   |
+| Brain4Cars - fold 2    | [Link to Dataset 3](url_to_dataset3)    | both       |
+| Brain4Cars - fold 3  | [Link to Dataset 1](url_to_dataset1)    | in-cabin   |
+| Brain4Cars - fold 3    | [Link to Dataset 2](url_to_dataset2)    | exterior   |
+| Brain4Cars - fold 3    | [Link to Dataset 3](url_to_dataset3)    | both       |
+| Brain4Cars - fold 4  | [Link to Dataset 1](url_to_dataset1)    | in-cabin   |
+| Brain4Cars - fold 4    | [Link to Dataset 2](url_to_dataset2)    | exterior   |
+| Brain4Cars - fold 4    | [Link to Dataset 3](url_to_dataset3)    | both       |
+| Brain4Cars - fold 5  | [Link to Dataset 1](url_to_dataset1)    | in-cabin   |
+| Brain4Cars - fold 5    | [Link to Dataset 2](url_to_dataset2)    | exterior   |
+| Brain4Cars - fold 5    | [Link to Dataset 3](url_to_dataset3)    | both       |
+
+
+
 ### Acknowledgements
 
-We gracefully made use from the code from [Rong et al (2020)](https://github.com/yaorong0921/Driver-Intention-Prediction), [Torch Multimodal](https://github.com/facebookresearch/multimodal/blob/main/torchmultimodal/modules/layers/attention.py)
+We gracefully made use from the code from [Rong et al.(2020)](https://github.com/yaorong0921/Driver-Intention-Prediction), [Torch Multimodal](https://github.com/facebookresearch/multimodal/blob/main/torchmultimodal/modules/layers/attention.py)
