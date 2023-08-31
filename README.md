@@ -32,10 +32,13 @@ This checks for every test partition if an instance is part of the other test pa
 python utils/dataset_check.py
 ```
 
-## Training & Validation
-Train one epoch >> ``` utils/training.py ```
-Training config >> ``` utils/train_cofig ```
-Evaluation epoch >> ``` utils/eval.py ```
+## Training & Validation (TODO provide main.py with argparse)
+* Train one epoch >> ``` utils/training.py ```
+
+* Training config >> ``` utils/train_setup.py ```
+
+* Evaluation epoch >> ``` utils/eval.py ```
+
 
 
 ## Models
