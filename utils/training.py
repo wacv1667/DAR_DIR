@@ -2,25 +2,28 @@ import gc
 import torch
 from tqdm import tqdm
 import torch.nn.functional as F
+from bayesian_torch.models.dnn_to_bnn import get_kl_loss
+
 
 def train_loop(model, train_loader,
                criterion, optimizer,
                accelerator, scheduler=None,
-               verbose=False):
+               verbose=False, 
+               bbb = False):
     model.train()
     total_loss = 0.0
     correct_predictions = 0
     total_predictions = 0
+                 
     for i, x in (enumerate(train_loader)):
         with accelerator.accumulate(model):
             x = {k:v.to(accelerator.device) for (k,v) in x.items()}
             targets = x["label"]
             outputs = model(x)
             loss = criterion(outputs, targets)
-            # multiply binary context penalty times the predicted probs
-            # sum per instance and take the batch mean to add to original loss
-            context_loss = torch.mean(torch.sum(x["context"].mul(F.softmax(outputs, dim=-1)),dim=1))
-            loss = context_loss + loss
+            if bbb: 
+                kl = get_kl_loss(model)
+                loss = loss + kl / targets.size(0) # divide KL by the batch_size 
             accelerator.backward(loss)
             optimizer.step()
             if scheduler:
@@ -40,5 +43,4 @@ def train_loop(model, train_loader,
     if verbose:
         print(f"Train Accuracy: {accuracy:.4f}")
         print(f"Train Loss: {epoch_loss:.4f}") 
-        
     return model, optimizer, scheduler, accuracy, epoch_loss
